@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 142" role="img" aria-label="Aman Audio">
+  <title>Aman Audio</title>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&amp;display=swap');
+    </style>
+    <clipPath id="oval-clip">
+      <ellipse cx="110" cy="72" rx="104" ry="69"/>
+    </clipPath>
+  </defs>
+  <ellipse cx="110" cy="72" rx="104" ry="69" fill="#3d2a17"/>
+  <text
+    x="107"
+    y="80"
+    font-family="'Barlow Condensed', 'Arial Narrow', sans-serif"
+    font-weight="800"
+    font-size="68"
+    fill="#658fab"
+    text-anchor="middle"
+    letter-spacing="1">AMAN</text>
+  <text
+    x="107"
+    y="138"
+    font-family="'Barlow Condensed', 'Arial Narrow', sans-serif"
+    font-weight="800"
+    font-size="68"
+    fill="#658fab"
+    text-anchor="middle"
+    letter-spacing="1">AUDIO</text>
+</svg>
