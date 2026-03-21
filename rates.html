@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>amanaudio — Service Rates</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0d0b;
+    --surface: #161410;
+    --border: #2a2620;
+    --accent: #c8a96e;
+    --accent-dim: #7a6540;
+    --text: #e8e0d0;
+    --text-dim: #7a7060;
+    --text-mid: #a89880;
+    --red: #c84b2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 60px 40px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 40% at 80% 10%, rgba(200,169,110,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(200,80,46,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 36px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 20px;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .logo span {
+    color: var(--text-dim);
+    font-size: 40px;
+  }
+
+  .tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 8px;
+  }
+
+  .header-right {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .header-right strong {
+    color: var(--text-mid);
+    font-weight: 500;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 44px;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* RATE ROWS */
+  .rate-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 20px;
+    opacity: 0;
+    animation: fadeUp 0.4s ease forwards;
+  }
+
+  .rate-row:last-child {
+    border-bottom: none;
+  }
+
+  .rate-name {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .rate-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  .rate-price {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    color: var(--accent);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .rate-price.range {
+    font-size: 13px;
+  }
+
+  /* HIGHLIGHT ROW */
+  .rate-row.highlight {
+    background: rgba(200,169,110,0.04);
+    padding: 14px 16px;
+    margin: 0 -16px;
+    border-bottom: 1px solid rgba(200,169,110,0.1);
+    border-radius: 2px;
+  }
+
+  /* POLICY BOX */
+  .policy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .policy-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+
+  .policy-item h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 8px;
+  }
+
+  .policy-item p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: var(--accent-dim);
+  }
+
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 2px;
+    padding: 2px 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+    opacity: 0.8;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 8px 0 24px;
+  }
+
+  /* ANIMATION */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .rate-row:nth-child(1) { animation-delay: 0.05s; }
+  .rate-row:nth-child(2) { animation-delay: 0.10s; }
+  .rate-row:nth-child(3) { animation-delay: 0.15s; }
+  .rate-row:nth-child(4) { animation-delay: 0.20s; }
+  .rate-row:nth-child(5) { animation-delay: 0.25s; }
+  .rate-row:nth-child(6) { animation-delay: 0.30s; }
+
+  @media print {
+    body { background: white; color: black; padding: 40px; }
+    body::before { display: none; }
+    :root {
+      --bg: white;
+      --surface: #f5f5f5;
+      --border: #ddd;
+      --accent: #8a6820;
+      --accent-dim: #6a5010;
+      --text: #111;
+      --text-dim: #888;
+      --text-mid: #555;
+      --red: #c00;
+    }
+    .rate-row { opacity: 1; animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div>
+      <div class="logo">aman<span>audio</span></div>
+      <div class="tagline">Amplifier &amp; Electronics Repair — Canandaigua, NY</div>
+    </div>
+    <div class="header-right">
+      <strong>By Appointment</strong><br>
+      Canandaigua, NY<br>
+      Service Rates · 2026
+    </div>
+  </header>
+
+  <!-- DIAGNOSTIC -->
+  <section class="section">
+    <div class="section-label">Diagnostic</div>
+    <div class="rate-row highlight">
+      <div>
+        <div class="rate-name">Bench / Diagnostic Fee <span class="badge">Required</span></div>
+        <div class="rate-note">Visual inspection, circuit test, troubleshooting, and written estimate. Applied toward repair if you proceed.</div>
+      </div>
+      <div class="rate-price">$65</div>
+    </div>
+  </section>
+
+  <!-- TUBE WORK -->
+  <section class="section">
+    <div class="section-label">Tube Work</div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Bias Set Only</div>
+        <div class="rate-note">Customer supplies tubes. Includes bias measurement and adjustment.</div>
+      </div>
+      <div class="rate-price">$45</div>
+    </div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Retube + Bias Set</div>
+        <div class="rate-note">Labor only. Tubes billed separately at cost + 35%.</div>
+      </div>
+      <div class="rate-price">$65</div>
+    </div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Tube Testing (per tube)</div>
+        <div class="rate-note">Emissions, transconductance, and leakage. Written results provided.</div>
+      </div>
+      <div class="rate-price">$4 / tube</div>
+    </div>
+  </section>
+
+  <!-- AMP SERVICE -->
+  <section class="section">
+    <div class="section-label">Amplifier Service</div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Basic Service</div>
+        <div class="rate-note">Filter cap replacement, common wear components, solder inspection. Parts additional.</div>
+      </div>
+      <div class="rate-price range">$120 – $180</div>
+    </div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Full Service</div>
+        <div class="rate-note">Full recap, retube, bias set, clean, and inspection. Parts additional.</div>
+      </div>
+      <div class="rate-price range">$220 – $320</div>
+    </div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Complex Fault Diagnosis &amp; Repair</div>
+        <div class="rate-note">Billed hourly after bench fee. Estimate provided before work begins.</div>
+      </div>
+      <div class="rate-price">$70 / hr</div>
+    </div>
+  </section>
+
+  <!-- MIXING / PA -->
+  <section class="section">
+    <div class="section-label">Mixing Boards &amp; PA Equipment</div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Diagnostic / Bench Fee</div>
+        <div class="rate-note">PA and board work is billed at $75 minimum due to complexity.</div>
+      </div>
+      <div class="rate-price">$75</div>
+    </div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Channel Strip &amp; Board Repair</div>
+        <div class="rate-note">Billed hourly. Estimate provided after diagnosis. Parts additional.</div>
+      </div>
+      <div class="rate-price">$70 / hr</div>
+    </div>
+  </section>
+
+  <!-- GENERAL ELECTRONICS -->
+  <section class="section">
+    <div class="section-label">General Electronics</div>
+
+    <div class="rate-row">
+      <div>
+        <div class="rate-name">Consumer &amp; Vintage Electronics</div>
+        <div class="rate-note">Stereo receivers, power supplies, effects units, and more. Quoted after diagnosis.</div>
+      </div>
+      <div class="rate-price">$65 bench + $70 / hr</div>
+    </div>
+  </section>
+
+  <!-- POLICY -->
+  <section class="section">
+    <div class="section-label">Shop Policy</div>
+    <div class="policy-grid">
+      <div class="policy-item">
+        <h4>Parts</h4>
+        <p>All parts billed at cost + 35%. Shipping costs passed through at actual cost. You'll always be informed before parts are ordered.</p>
+      </div>
+      <div class="policy-item">
+        <h4>Estimates</h4>
+        <p>Written estimate provided after diagnosis. No work begins without your approval. Bench fee applies if repair is declined.</p>
+      </div>
+      <div class="policy-item">
+        <h4>Appointments</h4>
+        <p>All drop-offs by appointment only. Contact to schedule. Turnaround time discussed at drop-off.</p>
+      </div>
+      <div class="policy-item">
+        <h4>Warranty</h4>
+        <p>30-day labor warranty on all completed repairs. Does not cover tube failure or pre-existing conditions unrelated to the repair.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-brand">amanaudio</div>
+    <div class="footer-note">
+      Rates effective 2026 · Subject to change without notice<br>
+      All prices reflect labor only unless otherwise noted
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -60,6 +60,7 @@
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="rates.html">Rates</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -70,14 +71,23 @@
     <!-- HERO -->
     <section class="hero" id="hero">
       <div class="hero-content">
-        <img src="logo.png" alt="Aman Audio" class="hero-logo" />
+        <img src="logo-bw.png" alt="Aman Audio" class="hero-logo" />
         <div class="hero-rule"></div>
         <h1 class="hero-title">BENCH TO<br>STAGE.</h1>
         <p class="hero-body">
-          Expert repair, restoration, modification, and custom builds for guitar amplifiers,
-          vintage stereos, and all manner of analog electronics.
+          Guitar amp repair, vintage stereo restoration, mods, and custom builds —
+          done right by someone who actually knows the gear.
+          Based in Canandaigua, NY. By appointment.
         </p>
-        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get a Quote</a>
+          <a href="rates.html" class="btn btn-secondary">View Rates</a>
+        </div>
+        <div class="hero-contact">
+          <a href="tel:+15857756757">(585) 775-6757</a>
+          <span class="hero-contact-divider">·</span>
+          <a href="mailto:jude.aman123@gmail.com">jude.aman123@gmail.com</a>
+        </div>
       </div>
     </section>
 
@@ -244,7 +254,7 @@
             </div>
           </div>
 
-          <form class="contact-form" name="quote" method="POST" netlify netlify-honeypot="bot-field">
+          <form class="contact-form" name="quote" method="POST" action="/thank-you.html" netlify netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="quote" />
             <p class="hidden" aria-hidden="true">
               <label>Don't fill this out: <input name="bot-field" /></label>
@@ -293,12 +303,13 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <img src="logo.png" alt="Aman Audio" class="logo-img footer-logo-img" />
+          <img src="logo-bw.png" alt="Aman Audio" class="logo-img footer-logo-img" />
           <p class="footer-tagline">From bench to stage — done right.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
           <a href="#services">Services</a>
           <a href="#about">About</a>
+          <a href="rates.html">Rates</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
