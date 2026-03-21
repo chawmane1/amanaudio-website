@@ -2,15 +2,15 @@
    DESIGN SYSTEM
    =========================== */
 :root {
-  --bg:          #0e0d0b;
-  --surface:     #161410;
-  --border:      #2a2620;
-  --accent:      #c8a96e;
-  --accent-dim:  #7a6540;
-  --text:        #e8e0d0;
-  --text-mid:    #a89880;
-  --text-dim:    #7a7060;
-  --red:         #c84b2e;
+  --bg:          #f5f0e8;
+  --surface:     #ede8dc;
+  --border:      #d0c4a8;
+  --accent:      #c44a1e;
+  --accent-dim:  #8a3010;
+  --text:        #1a1008;
+  --text-mid:    #4a3520;
+  --text-dim:    #7a6550;
+  --red:         #c44a1e;
 
   --font-heading: 'Bebas Neue', 'Arial Narrow', sans-serif;
   --font-body:    'DM Sans', system-ui, sans-serif;
@@ -219,8 +219,8 @@ h1, h2, h3 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(200,169,110,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 5% 90%, rgba(200,75,46,0.04) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(196,74,30,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 5% 90%, rgba(196,74,30,0.03) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -574,7 +574,7 @@ h1, h2, h3 {
 }
 
 .form-group select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%237a7060' d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%237a6550' d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   padding-right: 2.5rem;
