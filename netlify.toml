@@ -1,0 +1,12 @@
+# Netlify publishes the whole repo, so hide working files from the live site.
+[[redirects]]
+  from = "/_notes/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/projects/*"
+  to = "/404"
+  status = 404
+  force = true

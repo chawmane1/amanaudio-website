@@ -1,0 +1,7 @@
+.DS_Store
+
+# Repo is public on GitHub: keep private business notes out
+_notes/business-ops-plan.md
+
+# Full-size source photos (web copies live in images/)
+projects/
