@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parts Compendium — Aman Audio</title>
-  <meta name="description" content="Bench reference for common hardware and electronic components used in guitar amp repair, pedal builds, and vintage electronics restoration. Aman Audio — Canandaigua, NY." />
+  <title>Parts Compendium | Aman Audio</title>
+  <meta name="description" content="Bench reference for common hardware and electronic components used in guitar amp repair, pedal builds, and vintage electronics restoration. Aman Audio, Canandaigua, NY." />
 
   <link rel="canonical" href="https://amanaudio.com/parts.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aman Audio" />
+  <meta property="og:title" content="Parts Compendium | Aman Audio" />
+  <meta property="og:description" content="Bench reference for common hardware and electronic components used in guitar amp repair, pedal builds, and vintage electronics restoration. Aman Audio, Canandaigua, NY." />
+  <meta property="og:image" content="https://amanaudio.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://amanaudio.com/parts.html" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Parts Compendium | Aman Audio" />
+  <meta name="twitter:description" content="Bench reference for common hardware and electronic components used in guitar amp repair, pedal builds, and vintage electronics restoration. Aman Audio, Canandaigua, NY." />
+  <meta name="twitter:image" content="https://amanaudio.com/images/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -392,7 +408,7 @@
   <!-- HEADER / NAV -->
   <header class="site-header" id="top">
     <nav class="nav-inner">
-      <a href="/" class="logo"><img src="logo-bw.png" alt="Aman Audio" class="logo-img" /></a>
+      <a href="/" class="logo"><img src="logos/logo-bw.png" alt="Aman Audio" class="logo-img" /></a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -463,9 +479,9 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <a href="/" class="logo">
-            <img src="logo-bw.png" alt="Aman Audio" class="logo-img footer-logo-img" />
+            <img src="logos/logo-bw.png" alt="Aman Audio" class="logo-img footer-logo-img" />
           </a>
-          <p class="footer-tagline">From bench to stage — done right.</p>
+          <p class="footer-tagline">Amp, stereo &amp; speaker repair in the Finger Lakes.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
           <a href="/about.html">About</a>
@@ -517,7 +533,7 @@
                 <a class="part-vendor-name" href="${v.url}" target="_blank" rel="noopener noreferrer">${v.name}</a>
                 ${v.partNumber ? `<span class="part-vendor-pn">#${v.partNumber}</span>` : ''}
                 ${v.price != null ? `<span class="part-vendor-price">$${v.price.toFixed(2)}</span>` : ''}
-                ${v.notes ? `<span class="part-vendor-notes">— ${v.notes}</span>` : ''}
+                ${v.notes ? `<span class="part-vendor-notes">(${v.notes})</span>` : ''}
               </div>
             `).join('')}
           </div>
